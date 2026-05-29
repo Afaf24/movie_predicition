@@ -3,7 +3,8 @@ import pickle
 import streamlit as st
 
 xgb_model = pickle.load(open("movie_rating_model.pkl", "rb"))
-sentence_model = pickle.load(open("sentence_model.pkl", "rb"))
+from sentence_transformers import SentenceTransformer
+sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
 genres_columns = pickle.load(open("genre_columns.pkl", "rb"))
 avg_actor_rating = pickle.load(open("avg_actor_rating.pkl", "rb"))
 avg_director_rating = pickle.load(open("avg_director_rating.pkl", "rb"))
